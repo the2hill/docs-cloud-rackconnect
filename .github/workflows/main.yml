@@ -1,7 +1,7 @@
 name: main
 on: [ push ]
 env:
-  MELI_SITE: "f5c7ed1f-0f43-40ff-aa9b-69f62eb8b96a"
+  MELI_SITE: "57e0d197-a1fd-43ea-a12b-0b5b7d448928"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,12 +17,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Build sphinx documentation
-        working-directory: api-docs
+        working-directory: api-docs/
         run: |
           make clean html
       - name: "publish"
         run: |
-          npx -p "@getmeli/cli" meli upload ./api-docs/api-docs/_build/html \
+          npx -p "@getmeli/cli" meli upload ./api-docs/_build/html/docs/rackconnect/v3/developer-guide \
             --url "https://thisisjustatest.lol" \
             --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
