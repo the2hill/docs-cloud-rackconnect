@@ -17,7 +17,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Build sphinx documentation
-        working-directory: api-docs
+        working-directory: api-docs/
         run: |
           make clean html
       - name: "publish"
